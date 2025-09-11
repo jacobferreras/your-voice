@@ -3,7 +3,7 @@ import React from "react";
 const ListContainer = () => {
   return (
     <>
-      <div className="card bg-[#212121] text-neutral-content w-auto max-h-250 ">
+      <div className="card bg-[#212121] text-neutral-content w-auto overflow-y-scroll h-[56vh] ">
         <div className="card-body items-center text-center">
           <ul className="menu gap-2 grid grid-cols-1">
             <li>
