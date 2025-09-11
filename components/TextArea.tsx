@@ -1,4 +1,5 @@
 import React from "react";
+import { MAX_CHAR_LIMIT } from "@/lib/constant";
 
 interface TextAreaProps {
   text: string;
@@ -12,7 +13,7 @@ const TextArea = ({ text, handleChange }: TextAreaProps) => {
       onChange={handleChange}
       placeholder="Success"
       className="textarea textarea-success w-auto lg:w-200  border-gray-600 bg-[#2c2c2c] text-white"
-      maxLength={150}
+      maxLength={MAX_CHAR_LIMIT}
     ></textarea>
   );
 };
