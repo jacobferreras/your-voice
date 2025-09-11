@@ -1,10 +1,14 @@
 import React from "react";
 
-const WordsLimit = () => {
+interface WordsLimitProps {
+  remainingChars: number;
+}
+
+const WordsLimit = ({ remainingChars }: WordsLimitProps) => {
   return (
     <>
       <div className="text-left w-full pl-2">
-        <p>Limit: 150</p>
+        <p>{remainingChars} characters remaining</p>
       </div>
     </>
   );
