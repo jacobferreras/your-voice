@@ -3,16 +3,21 @@ import React from "react";
 const Sidebar = () => {
   return (
     <>
-      <div className="card card-border bg-[#212121] w-96 h-full">
+      <div className="card card-border bg-[#212121] w-96 h-216">
         <div className="card-body">
-          <h2 className="card-title">Card Title</h2>
-          <p>
-            A card component has a figure, a body part, and inside body there
-            are title and actions parts
-          </p>
-          <div className="card-actions justify-end">
-            <button className="btn btn-primary">Buy Now</button>
-          </div>
+          <ul className="menu gap-4 grid grid-cols-3">
+            <li>
+              <button className="btn btn-soft rounded-xl  w-20">
+                #YouTube
+              </button>
+            </li>
+            <li>
+              <button className="btn btn-soft rounded-xl w-20">#Nike</button>
+            </li>
+            <li>
+              <button className="btn btn-soft rounded-xl w-20">#Apple</button>
+            </li>
+          </ul>
         </div>
       </div>
     </>
