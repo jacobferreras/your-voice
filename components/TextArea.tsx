@@ -11,7 +11,7 @@ const TextArea = ({ text, handleChange }: TextAreaProps) => {
       value={text}
       onChange={handleChange}
       placeholder="Success"
-      className="textarea textarea-success w-auto lg:w-200"
+      className="textarea textarea-success w-auto lg:w-200  border-gray-600 bg-[#2c2c2c] text-white"
       maxLength={150}
     ></textarea>
   );
