@@ -9,6 +9,7 @@ interface FeedbackStore {
   loading: boolean;
   setFeedbackItems: (items: FeedbackItem[]) => void;
   setLoading: (loading: boolean) => void;
+  addFeedbackItem: (item: FeedbackItem) => void;
 }
 
 const useFeedbackStore = create<FeedbackStore>((set) => ({
@@ -23,6 +24,8 @@ const useFeedbackStore = create<FeedbackStore>((set) => ({
   loading: true,
   setFeedbackItems: (items: FeedbackItem[]) => set({ feedbackItems: items }),
   setLoading: (loading) => set({ loading }),
+  addFeedbackItem: (item: FeedbackItem) =>
+    set((state) => ({ feedbackItems: [...state.feedbackItems, item] })),
 }));
 
 export default useFeedbackStore;

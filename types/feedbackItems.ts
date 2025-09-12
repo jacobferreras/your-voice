@@ -2,6 +2,7 @@ export interface FeedbackItem {
   id: number;
   upvoteCount: number;
   company: string;
-  daysAgo: string;
+  daysAgo: number;
   text: string;
+  badgeLetter?: string;
 }

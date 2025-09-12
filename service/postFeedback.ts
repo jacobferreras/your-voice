@@ -1,12 +1,10 @@
 import axios from "axios";
+import { FeedbackItem } from "../types/feedbackItems";
 
-export const postFeedback = async () => {
+export const postFeedback = async (item: FeedbackItem) => {
   try {
     const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}`, {
-      upvoteCount: 0,
-      company: "",
-      daysAgo: "",
-      text: "",
+      ...item,
     });
     const data = response.data.feedbacks;
     return data;
@@ -15,4 +13,3 @@ export const postFeedback = async () => {
     throw error;
   }
 };
-1;
