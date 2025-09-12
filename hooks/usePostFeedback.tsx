@@ -19,6 +19,9 @@ const usePostFeedback = () => {
       return;
     }
 
+    setBorderColor("border-gray-600");
+    setText("");
+
     const newItem = {
       id: Date.now(),
       upvoteCount: 0,
@@ -29,7 +32,6 @@ const usePostFeedback = () => {
     };
     addFeedbackItem(newItem);
     await postFeedback(newItem);
-    setText("");
   };
 
   return { handlePostFeedback, borderColor };
