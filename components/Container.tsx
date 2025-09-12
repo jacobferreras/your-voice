@@ -1,7 +1,8 @@
-import React from "react";
+"use client";
 import FeedbackForm from "./FeedbackForm";
 import Sidebar from "./Sidebar";
 import ListContainer from "./ListContainer";
+import useFeedbackItems from "@/hooks/useFeedbackItems";
 
 const Container = () => {
   return (

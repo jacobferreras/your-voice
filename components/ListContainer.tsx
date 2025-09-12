@@ -2,18 +2,11 @@
 import ListItem from "./ListItem";
 import ListItemSkeleton from "./ListItemSkeleton";
 import useFeedbackItems from "@/hooks/useFeedbackItems";
-
-interface FeedbackItem {
-  id: number;
-  upvoteCount: number;
-  company: string;
-  daysAgo: string;
-  text: string;
-}
+import { FeedbackItem } from "@/types/feedbackItems";
 
 const ListContainer = () => {
   const { feedbackItems, loading } = useFeedbackItems();
-  console.log(feedbackItems);
+
   return (
     <>
       <div className="card bg-[#212121] text-neutral-content w-auto overflow-y-scroll h-[56vh] ">

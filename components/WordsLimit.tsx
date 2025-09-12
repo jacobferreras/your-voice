@@ -7,7 +7,7 @@ interface WordsLimitProps {
 const WordsLimit = ({ remainingChars }: WordsLimitProps) => {
   return (
     <>
-      <div className="text-left w-full pl-8">
+      <div className="text-left w-full pl-12">
         <p>{remainingChars} characters remaining</p>
       </div>
     </>
