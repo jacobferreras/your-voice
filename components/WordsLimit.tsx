@@ -1,10 +1,12 @@
 import React from "react";
+import useFeedbackStore from "@/store/useFeedbackStore";
+import { MAX_CHAR_LIMIT } from "@/lib/constant";
 
-interface WordsLimitProps {
-  remainingChars: number;
-}
+const WordsLimit = () => {
+  const remainingChars = useFeedbackStore((state) =>
+    state.remainingChars(MAX_CHAR_LIMIT, state.text)
+  );
 
-const WordsLimit = ({ remainingChars }: WordsLimitProps) => {
   return (
     <>
       <div className="text-left w-full pl-12">
