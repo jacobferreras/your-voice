@@ -4,7 +4,7 @@ import React from "react";
 interface ListItemProps {
   upVoteCount: number;
   companyName: string;
-  daysAgo: string;
+  daysAgo: number;
   text: string;
 }
 
@@ -21,7 +21,7 @@ const ListItem = ({
           <h2 className="pt-4 ml-4 text-2xl">{upVoteCount}</h2>
           <div className="card-body text-start">
             <h2 className="card-title font-bold">{companyName}</h2>
-            <h3>{daysAgo} days ago</h3>
+            <h3>{daysAgo === 0 ? "NEW" : `${daysAgo} days ago`}</h3>
             <p>{text}</p>
           </div>
         </div>

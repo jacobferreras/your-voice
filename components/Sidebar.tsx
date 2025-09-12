@@ -1,22 +1,19 @@
-import React from "react";
+import useFeedbackItems from "../hooks/useFeedbackItems";
 
 const Sidebar = () => {
+  const { companyList } = useFeedbackItems();
   return (
     <>
-      <div className="card card-border bg-[#212121] w-96 h-216">
+      <div className="card card-border bg-[#212121] w-50 h-216">
         <div className="card-body">
-          <ul className="menu gap-4 grid grid-cols-3">
-            <li>
-              <button className="btn btn-soft rounded-xl  w-20">
-                #YouTube
-              </button>
-            </li>
-            <li>
-              <button className="btn btn-soft rounded-xl w-20">#Nike</button>
-            </li>
-            <li>
-              <button className="btn btn-soft rounded-xl w-20">#Apple</button>
-            </li>
+          <ul className="menu gap-4">
+            {companyList.map((company) => (
+              <li key={company}>
+                <button className="btn btn-soft rounded-xl w-auto">
+                  #{company}
+                </button>
+              </li>
+            ))}
           </ul>
         </div>
       </div>

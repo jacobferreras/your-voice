@@ -3,6 +3,9 @@ import { FeedbackItem } from "../types/feedbackItems";
 
 interface FeedbackStore {
   text: string;
+  setText: (text: string) => void;
+  borderColor: string;
+  setBorderColor: (color: string) => void;
   handleChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
   remainingChars: (MAX_CHAR_LIMIT: number, text: string) => number;
   feedbackItems: FeedbackItem[];
@@ -14,6 +17,9 @@ interface FeedbackStore {
 
 const useFeedbackStore = create<FeedbackStore>((set) => ({
   text: "",
+  setText: (text: string) => set({ text }),
+  borderColor: "border-gray-600",
+  setBorderColor: (color: string) => set({ borderColor: color }),
   handleChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     e.preventDefault();
     set({ text: e.target.value });

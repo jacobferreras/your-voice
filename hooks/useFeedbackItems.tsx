@@ -9,6 +9,10 @@ const useFeedbackItems = () => {
   const setFeedbackItems = useFeedbackStore((state) => state.setFeedbackItems);
   const setLoading = useFeedbackStore((state) => state.setLoading);
 
+  const companyList = feedbackItems
+    .map((item) => item.company)
+    .filter((company, index, self) => self.indexOf(company) === index);
+
   useEffect(() => {
     const getFeedbackItems = async () => {
       try {
@@ -23,7 +27,7 @@ const useFeedbackItems = () => {
     getFeedbackItems();
   }, []);
 
-  return { feedbackItems, loading };
+  return { feedbackItems, loading, companyList };
 };
 
 export default useFeedbackItems;

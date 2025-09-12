@@ -1,17 +1,23 @@
 import React from "react";
 import { MAX_CHAR_LIMIT } from "@/lib/constant";
 import useFeedbackStore from "@/store/useFeedbackStore";
+import usePostFeedback from "@/hooks/usePostFeedback";
 
 const TextArea = () => {
   const text = useFeedbackStore((state) => state.text);
   const handleChange = useFeedbackStore((state) => state.handleChange);
+  const { borderColor } = usePostFeedback();
 
   return (
     <textarea
       value={text}
       onChange={handleChange}
-      placeholder="Success"
-      className="textarea textarea-success w-auto lg:w-250  border-gray-600 bg-[#2c2c2c] text-white"
+      placeholder={`${
+        borderColor === "border-red-600"
+          ? "Please enter valid feedback with a #hashtag"
+          : "Enter your feedback here..."
+      }`}
+      className={`textarea textarea-success w-auto lg:w-250 ${borderColor} bg-[#2c2c2c] text-white`}
       maxLength={MAX_CHAR_LIMIT}
     ></textarea>
   );
