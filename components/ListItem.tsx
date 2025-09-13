@@ -17,7 +17,7 @@ const ListItem = ({
   return (
     <>
       <li>
-        <div className="card card-border bg-[#2a2a2a] w-auto flex flex-row">
+        <div className="card card-border bg-[#2a2a2a] flex flex-row w-[1000px]">
           <h2 className="pt-4 ml-4 text-2xl">{upVoteCount}</h2>
           <div className="card-body text-start">
             <h2 className="card-title font-bold">{companyName}</h2>
