@@ -6,6 +6,7 @@ const FeedbackTextArea = () => {
   const text = useFeedbackStore((state) => state.text);
   const handleChange = useFeedbackStore((state) => state.handleChange);
   const borderColor = useFeedbackStore((state) => state.borderColor);
+  const keyDown = useFeedbackStore((state) => state.keyDown);
 
   return (
     <textarea
@@ -16,8 +17,9 @@ const FeedbackTextArea = () => {
           ? "Please enter valid feedback with a #hashtag"
           : "Enter your feedback here..."
       }`}
-      className={`textarea textarea-success w-full min-h-[120px] sm:min-h-[150px] md:min-h-[180px] ${borderColor} bg-[#2c2c2c] text-white px-2 sm:px-4`}
+      className={`textarea w-full min-h-[120px] sm:min-h-[150px] md:min-h-[180px] ${borderColor} bg-[#2c2c2c] text-white px-2 sm:px-4`}
       maxLength={MAX_CHAR_LIMIT}
+      onKeyDown={(e) => keyDown(e, text)}
     ></textarea>
   );
 };

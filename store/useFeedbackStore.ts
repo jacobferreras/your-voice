@@ -15,6 +15,7 @@ interface FeedbackStore {
   clearCompany: () => void;
   getAction: () => void;
   addAction: (text: string) => void;
+  keyDown: (e: React.KeyboardEvent<HTMLTextAreaElement>, text: string) => void;
 }
 
 const useFeedbackStore = create<FeedbackStore>((set) => ({
@@ -81,6 +82,45 @@ const useFeedbackStore = create<FeedbackStore>((set) => ({
 
     set((state) => ({ feedbackItems: [...state.feedbackItems, newItem] }));
     await postFeedback(newItem);
+  },
+
+  keyDown: async (
+    e: React.KeyboardEvent<HTMLTextAreaElement>,
+    text: string
+  ) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+
+      const companyRawName = text
+        .split(" ")
+        .find((word) => word.startsWith("#"))
+        ?.substring(1);
+
+      const companyName = companyRawName
+        ? companyRawName.charAt(0).toUpperCase() +
+          companyRawName.slice(1).toLowerCase()
+        : "";
+
+      if (text.trim() === "" || !companyName) {
+        set({ borderColor: "border-red-600", text: "" });
+
+        return;
+      }
+
+      set({ borderColor: "border-green-600", text: "" });
+
+      const newItem = {
+        id: Date.now(),
+        upvoteCount: 0,
+        company: companyName ? companyName.replace("#", "") : "Example Corp",
+        daysAgo: 0,
+        text,
+        badgeLetter: companyName ? companyName.charAt(1).toUpperCase() : "E",
+      };
+
+      set((state) => ({ feedbackItems: [...state.feedbackItems, newItem] }));
+      await postFeedback(newItem);
+    }
   },
 }));
 
