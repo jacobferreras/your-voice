@@ -1,6 +1,6 @@
 import React from "react";
 import TextArea from "./TextArea";
-import WordsLimit from "./WordsLimit";
+import TextLimit from "./TextLimit";
 import Button from "./Button";
 
 const FeedbackForm = () => {
@@ -15,7 +15,7 @@ const FeedbackForm = () => {
             Enter your feedback here, remember to <b>#hashtag</b> the company..
           </p>
           <TextArea />
-          <WordsLimit />
+          <TextLimit />
           <Button />
         </div>
       </div>
