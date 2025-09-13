@@ -14,7 +14,7 @@ const FeedbackContainer = ({
 }: FeedbackContainerProps) => {
   return (
     <>
-      <div className="card bg-[#212121] text-neutral-content w-auto overflow-y-scroll h-[56vh] ">
+      <div className="card bg-[#212121] text-neutral-content w-full max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-3xl mx-auto overflow-y-scroll h-[56vh] px-2 sm:px-4 md:px-8">
         <div className="card-body items-center text-center">
           <ol className="menu gap-2 grid grid-cols-1">
             {loading &&

@@ -8,11 +8,11 @@ const FeedbackLimit = () => {
   );
 
   return (
-    <>
-      <div className="text-left w-full pl-12">
-        <p>{remainingChars} characters remaining</p>
-      </div>
-    </>
+    <div className="w-full text-left">
+      <p className="text-xs sm:text-sm md:text-base">
+        {remainingChars} characters remaining
+      </p>
+    </div>
   );
 };
 
