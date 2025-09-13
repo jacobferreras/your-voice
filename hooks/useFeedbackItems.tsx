@@ -1,6 +1,6 @@
 "use client";
 import fetchFeedback from "@/service/fetchFeedback";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import useFeedbackStore from "@/store/useFeedbackStore";
 
 const useFeedbackItems = () => {
@@ -8,6 +8,15 @@ const useFeedbackItems = () => {
   const loading = useFeedbackStore((state) => state.loading);
   const setFeedbackItems = useFeedbackStore((state) => state.setFeedbackItems);
   const setLoading = useFeedbackStore((state) => state.setLoading);
+  const [selectedCompany, setSelectedCompany] = useState("");
+
+  const filterFeedbackByCompany = selectedCompany
+    ? feedbackItems.filter((item) => item.company === selectedCompany)
+    : feedbackItems;
+
+  const handelSelectCompany = (company: string) => {
+    setSelectedCompany(company);
+  };
 
   const companyList = feedbackItems
     .map((item) => item.company)
@@ -27,7 +36,7 @@ const useFeedbackItems = () => {
     getFeedbackItems();
   }, []);
 
-  return { feedbackItems, loading, companyList };
+  return { filterFeedbackByCompany, loading, companyList, handelSelectCompany };
 };
 
 export default useFeedbackItems;
