@@ -1,8 +1,6 @@
 "use client";
-import fetchFeedback from "@/service/fetchFeedback";
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import useFeedbackStore from "@/store/useFeedbackStore";
-import { get } from "http";
 
 const useFeedbackItems = () => {
   const feedbackItems = useFeedbackStore((state) => state.feedbackItems);
