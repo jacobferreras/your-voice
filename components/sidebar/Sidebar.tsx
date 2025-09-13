@@ -1,5 +1,5 @@
 import useFeedbackStore from "@/store/useFeedbackStore";
-import useFeedbackItems from "../hooks/useFeedbackItems";
+import useFeedbackItems from "../../hooks/useFeedbackItems";
 import SidebarHashtagList from "./SidebarHashtagList";
 import SidebarHashtagListSkeleton from "./SidebarHashtagListSkeleton";
 

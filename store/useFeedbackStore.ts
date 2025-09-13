@@ -1,12 +1,12 @@
 import { create } from "zustand";
-import { FeedbackItem } from "../types/feedbackItems";
+import { FeedbackType } from "../types/feedbackType";
 import { postFeedback } from "../service/postFeedback";
 import fetchFeedback from "@/service/fetchFeedback";
 
 interface FeedbackStore {
   text: string;
   borderColor: string;
-  feedbackItems: FeedbackItem[];
+  feedbackItems: FeedbackType[];
   loading: boolean;
   selectedCompany?: string;
   handleChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
@@ -24,7 +24,7 @@ const useFeedbackStore = create<FeedbackStore>((set) => ({
 
   loading: true,
 
-  feedbackItems: [] as FeedbackItem[],
+  feedbackItems: [] as FeedbackType[],
 
   handleChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     e.preventDefault();
@@ -34,7 +34,7 @@ const useFeedbackStore = create<FeedbackStore>((set) => ({
   remainingChars: (MAX_CHAR_LIMIT: number, text: string) =>
     MAX_CHAR_LIMIT - text.length,
 
-  setFeedbackItems: (items: FeedbackItem[]) => set({ feedbackItems: items }),
+  setFeedbackItems: (items: FeedbackType[]) => set({ feedbackItems: items }),
 
   selectCompany: (company: string) => set({ selectedCompany: company }),
 

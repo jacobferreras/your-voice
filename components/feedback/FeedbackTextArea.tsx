@@ -2,7 +2,7 @@ import React from "react";
 import { MAX_CHAR_LIMIT } from "@/lib/constant";
 import useFeedbackStore from "@/store/useFeedbackStore";
 
-const TextArea = () => {
+const FeedbackTextArea = () => {
   const text = useFeedbackStore((state) => state.text);
   const handleChange = useFeedbackStore((state) => state.handleChange);
   const borderColor = useFeedbackStore((state) => state.borderColor);
@@ -22,4 +22,4 @@ const TextArea = () => {
   );
 };
 
-export default TextArea;
+export default FeedbackTextArea;

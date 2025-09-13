@@ -1,7 +1,7 @@
 "use client";
-import FeedbackForm from "./FeedbackForm";
-import Sidebar from "./Sidebar";
-import ListContainer from "./ListContainer";
+import FeedbackForm from "../components/feedback/FeedbackForm";
+import Sidebar from "./sidebar/Sidebar";
+import FeedbackContainer from "./feedback/FeedbackContainer";
 import useFeedbackItems from "@/hooks/useFeedbackItems";
 
 const Container = () => {
@@ -12,7 +12,7 @@ const Container = () => {
       <div className="flex flex-row justify-center items-center h-screen bg-[#1a1a1a] gap-4 py-12">
         <div className="flex flex-col gap-4">
           <FeedbackForm />
-          <ListContainer
+          <FeedbackContainer
             filterFeedbackByCompany={filterFeedbackByCompany}
             loading={loading}
           />

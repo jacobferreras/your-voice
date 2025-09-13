@@ -1,5 +1,5 @@
 import axios from "axios";
-import { FeedbackItem } from "../types/feedbackItems";
+import { FeedbackItem } from "../types/feedbackType";
 
 export const postFeedback = async (item: FeedbackItem) => {
   try {

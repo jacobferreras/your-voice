@@ -2,7 +2,7 @@ import React from "react";
 
 import useFeedbackStore from "@/store/useFeedbackStore";
 
-const Button = () => {
+const FeedbackButton = () => {
   const addAction = useFeedbackStore((state) => state.addAction);
   const text = useFeedbackStore((state) => state.text);
 
@@ -15,4 +15,4 @@ const Button = () => {
   );
 };
 
-export default Button;
+export default FeedbackButton;

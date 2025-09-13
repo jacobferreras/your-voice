@@ -8,7 +8,7 @@ interface ListItemProps {
   text: string;
 }
 
-const ListItem = ({
+const FeedbackItem = ({
   upVoteCount,
   companyName,
   daysAgo,
@@ -30,4 +30,4 @@ const ListItem = ({
   );
 };
 
-export default ListItem;
+export default FeedbackItem;

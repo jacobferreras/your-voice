@@ -1,6 +1,6 @@
 import React from "react";
 
-const ListItemSkeleton = () => {
+const FeedbackItemSkeleton = () => {
   return (
     <li>
       <div className="card card-border bg-[#2a2a2a] w-270 flex flex-row animate-pulse">
@@ -17,4 +17,4 @@ const ListItemSkeleton = () => {
   );
 };
 
-export default ListItemSkeleton;
+export default FeedbackItemSkeleton;

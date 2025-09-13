@@ -2,7 +2,7 @@ import React from "react";
 import useFeedbackStore from "@/store/useFeedbackStore";
 import { MAX_CHAR_LIMIT } from "@/lib/constant";
 
-const TextLimit = () => {
+const FeedbackLimit = () => {
   const remainingChars = useFeedbackStore((state) =>
     state.remainingChars(MAX_CHAR_LIMIT, state.text)
   );
@@ -16,4 +16,4 @@ const TextLimit = () => {
   );
 };
 
-export default TextLimit;
+export default FeedbackLimit;

@@ -1,4 +1,4 @@
-export interface FeedbackItem {
+export interface FeedbackType {
   id: number;
   upvoteCount: number;
   company: string;

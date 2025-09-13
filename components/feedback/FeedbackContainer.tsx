@@ -1,17 +1,17 @@
 "use client";
-import ListItem from "./ListItem";
-import ListItemSkeleton from "./ListItemSkeleton";
-import { FeedbackItem } from "@/types/feedbackItems";
+import FeedbackItem from "./FeedbackItem";
+import FeedbackItemSkeleton from "./FeedbackItemSkeleton";
+import { FeedbackType } from "@/types/feedbackType";
 
-interface ListContainerProps {
-  filterFeedbackByCompany: FeedbackItem[];
+interface FeedbackContainerProps {
+  filterFeedbackByCompany: FeedbackType[];
   loading?: boolean;
 }
 
-const ListContainer = ({
+const FeedbackContainer = ({
   filterFeedbackByCompany,
   loading,
-}: ListContainerProps) => {
+}: FeedbackContainerProps) => {
   return (
     <>
       <div className="card bg-[#212121] text-neutral-content w-auto overflow-y-scroll h-[56vh] ">
@@ -19,10 +19,10 @@ const ListContainer = ({
           <ol className="menu gap-2 grid grid-cols-1">
             {loading &&
               Array.from({ length: 5 }).map((_, index) => (
-                <ListItemSkeleton key={index} />
+                <FeedbackItemSkeleton key={index} />
               ))}
-            {filterFeedbackByCompany.map((item: FeedbackItem) => (
-              <ListItem
+            {filterFeedbackByCompany.map((item: FeedbackType) => (
+              <FeedbackItem
                 key={item.id}
                 upVoteCount={item.upvoteCount}
                 companyName={item.company}
@@ -37,4 +37,4 @@ const ListContainer = ({
   );
 };
 
-export default ListContainer;
+export default FeedbackContainer;

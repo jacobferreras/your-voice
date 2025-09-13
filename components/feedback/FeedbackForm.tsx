@@ -1,7 +1,6 @@
-import React from "react";
-import TextArea from "./TextArea";
-import TextLimit from "./TextLimit";
-import Button from "./Button";
+import FeedbackTextArea from "./FeedbackTextArea";
+import FeedbackLimit from "./FeedbackLimit";
+import FeedbackButton from "./FeedbackButton";
 
 const FeedbackForm = () => {
   return (
@@ -14,9 +13,9 @@ const FeedbackForm = () => {
           <p className="font-semibold text-xl">
             Enter your feedback here, remember to <b>#hashtag</b> the company..
           </p>
-          <TextArea />
-          <TextLimit />
-          <Button />
+          <FeedbackTextArea />
+          <FeedbackLimit />
+          <FeedbackButton />
         </div>
       </div>
     </>
