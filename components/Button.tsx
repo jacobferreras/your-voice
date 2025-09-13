@@ -1,12 +1,14 @@
 import React from "react";
-import usePostFeedback from "@/hooks/usePostFeedback";
+
+import useFeedbackStore from "@/store/useFeedbackStore";
 
 const Button = () => {
-  const { handlePostFeedback } = usePostFeedback();
+  const addAction = useFeedbackStore((state) => state.addAction);
+  const text = useFeedbackStore((state) => state.text);
 
   return (
     <div className="w-full flex justify-end pr-12">
-      <button className="btn btn-success" onClick={handlePostFeedback}>
+      <button className="btn btn-success" onClick={() => addAction(text)}>
         Submit
       </button>
     </div>
