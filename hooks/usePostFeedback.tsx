@@ -1,6 +1,5 @@
 import { postFeedback } from "@/service/postFeedback";
 import useFeedbackStore from "@/store/useFeedbackStore";
-import { useState } from "react";
 
 const usePostFeedback = () => {
   const addFeedbackItem = useFeedbackStore((state) => state.addFeedbackItem);
@@ -28,7 +27,7 @@ const usePostFeedback = () => {
       return;
     }
 
-    setBorderColor("border-gray-600");
+    setBorderColor("border-green-600");
     setText("");
 
     const newItem = {

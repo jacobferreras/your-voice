@@ -13,6 +13,9 @@ interface FeedbackStore {
   setFeedbackItems: (items: FeedbackItem[]) => void;
   setLoading: (loading: boolean) => void;
   addFeedbackItem: (item: FeedbackItem) => void;
+  selectedCompany?: string;
+  selectCompany: (company: string) => void;
+  clearCompany: () => void;
 }
 
 const useFeedbackStore = create<FeedbackStore>((set) => ({
@@ -32,6 +35,8 @@ const useFeedbackStore = create<FeedbackStore>((set) => ({
   setLoading: (loading) => set({ loading }),
   addFeedbackItem: (item: FeedbackItem) =>
     set((state) => ({ feedbackItems: [...state.feedbackItems, item] })),
+  selectCompany: (company: string) => set({ selectedCompany: company }),
+  clearCompany: () => set({ selectedCompany: "" }),
 }));
 
 export default useFeedbackStore;
