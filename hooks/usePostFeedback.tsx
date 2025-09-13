@@ -12,7 +12,11 @@ const usePostFeedback = () => {
   const handlePostFeedback = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
 
-    const companyName = text.split(" ").find((word) => word.startsWith("#"));
+    const companyName = text
+      .split(" ")
+      .find((word) => word.startsWith("#"))
+      ?.substring(1)
+      .toUpperCase();
     if (text.trim() === "" || !companyName) {
       setBorderColor("border-red-600");
       setText("");
