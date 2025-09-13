@@ -1,7 +1,7 @@
 import axios from "axios";
-import { FeedbackItem } from "../types/feedbackType";
+import { FeedbackType } from "../types/feedbackType";
 
-export const postFeedback = async (item: FeedbackItem) => {
+export const postFeedback = async (item: FeedbackType) => {
   try {
     const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}`, {
       ...item,
