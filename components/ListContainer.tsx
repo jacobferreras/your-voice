@@ -1,12 +1,17 @@
 "use client";
 import ListItem from "./ListItem";
 import ListItemSkeleton from "./ListItemSkeleton";
-import useFeedbackItems from "@/hooks/useFeedbackItems";
 import { FeedbackItem } from "@/types/feedbackItems";
 
-const ListContainer = () => {
-  const { feedbackItems, loading } = useFeedbackItems();
+interface ListContainerProps {
+  filterFeedbackByCompany: FeedbackItem[];
+  loading?: boolean;
+}
 
+const ListContainer = ({
+  filterFeedbackByCompany,
+  loading,
+}: ListContainerProps) => {
   return (
     <>
       <div className="card bg-[#212121] text-neutral-content w-auto overflow-y-scroll h-[56vh] ">
@@ -16,7 +21,7 @@ const ListContainer = () => {
               Array.from({ length: 5 }).map((_, index) => (
                 <ListItemSkeleton key={index} />
               ))}
-            {feedbackItems.map((item: FeedbackItem) => (
+            {filterFeedbackByCompany.map((item: FeedbackItem) => (
               <ListItem
                 key={item.id}
                 upVoteCount={item.upvoteCount}
