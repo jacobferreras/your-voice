@@ -5,15 +5,24 @@ import ListContainer from "./ListContainer";
 import useFeedbackItems from "@/hooks/useFeedbackItems";
 
 const Container = () => {
+  const { filterFeedbackByCompany, loading, handelSelectCompany, companyList } =
+    useFeedbackItems();
+
   return (
     <>
       <div className="flex flex-row justify-center items-center h-screen bg-[#1a1a1a] gap-4 py-12">
         <div className="flex flex-col gap-4">
           <FeedbackForm />
-          <ListContainer />
+          <ListContainer
+            filterFeedbackByCompany={filterFeedbackByCompany}
+            loading={loading}
+          />
         </div>
 
-        <Sidebar />
+        <Sidebar
+          handleSelectCompany={handelSelectCompany}
+          companyList={companyList}
+        />
       </div>
     </>
   );
