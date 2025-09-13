@@ -5,8 +5,7 @@ import ListContainer from "./ListContainer";
 import useFeedbackItems from "@/hooks/useFeedbackItems";
 
 const Container = () => {
-  const { filterFeedbackByCompany, loading, handelSelectCompany, companyList } =
-    useFeedbackItems();
+  const { filterFeedbackByCompany, loading, companyList } = useFeedbackItems();
 
   return (
     <>
@@ -19,10 +18,7 @@ const Container = () => {
           />
         </div>
 
-        <Sidebar
-          handleSelectCompany={handelSelectCompany}
-          companyList={companyList}
-        />
+        <Sidebar companyList={companyList} />
       </div>
     </>
   );
