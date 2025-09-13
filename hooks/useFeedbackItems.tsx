@@ -2,13 +2,13 @@
 import fetchFeedback from "@/service/fetchFeedback";
 import { useEffect, useState, useMemo } from "react";
 import useFeedbackStore from "@/store/useFeedbackStore";
+import { get } from "http";
 
 const useFeedbackItems = () => {
   const feedbackItems = useFeedbackStore((state) => state.feedbackItems);
   const loading = useFeedbackStore((state) => state.loading);
-  const setFeedbackItems = useFeedbackStore((state) => state.setFeedbackItems);
-  const setLoading = useFeedbackStore((state) => state.setLoading);
   const selectedCompany = useFeedbackStore((state) => state.selectedCompany);
+  const getAction = useFeedbackStore((state) => state.getAction);
 
   const filterFeedbackByCompany = useMemo(
     () =>
@@ -27,17 +27,7 @@ const useFeedbackItems = () => {
   );
 
   useEffect(() => {
-    const getFeedbackItems = async () => {
-      try {
-        setLoading(true);
-        const feedbackItems = await fetchFeedback();
-        setFeedbackItems(feedbackItems);
-      } catch (error) {
-      } finally {
-        setLoading(false);
-      }
-    };
-    getFeedbackItems();
+    getAction();
   }, []);
 
   return {

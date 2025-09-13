@@ -1,48 +1,48 @@
-import { postFeedback } from "@/service/postFeedback";
-import useFeedbackStore from "@/store/useFeedbackStore";
+// import { postFeedback } from "@/service/postFeedback";
+// import useFeedbackStore from "@/store/useFeedbackStore";
 
-const usePostFeedback = () => {
-  const addFeedbackItem = useFeedbackStore((state) => state.addFeedbackItem);
-  const text = useFeedbackStore((state) => state.text);
-  const borderColor = useFeedbackStore((state) => state.borderColor);
-  const setBorderColor = useFeedbackStore((state) => state.setBorderColor);
-  const setText = useFeedbackStore((state) => state.setText);
+// const usePostFeedback = () => {
+//   const addFeedbackItem = useFeedbackStore((state) => state.addFeedbackItem);
+//   const text = useFeedbackStore((state) => state.text);
+//   const borderColor = useFeedbackStore((state) => state.borderColor);
 
-  const handlePostFeedback = async (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
+//   const setText = useFeedbackStore((state) => state.setText);
 
-    const companyRawName = text
-      .split(" ")
-      .find((word) => word.startsWith("#"))
-      ?.substring(1);
+//   const handlePostFeedback = async (e: React.MouseEvent<HTMLButtonElement>) => {
+//     e.preventDefault();
 
-    const companyName = companyRawName
-      ? companyRawName.charAt(0).toUpperCase() +
-        companyRawName.slice(1).toLowerCase()
-      : "";
+//     const companyRawName = text
+//       .split(" ")
+//       .find((word) => word.startsWith("#"))
+//       ?.substring(1);
 
-    if (text.trim() === "" || !companyName) {
-      setBorderColor("border-red-600");
-      setText("");
-      return;
-    }
+//     const companyName = companyRawName
+//       ? companyRawName.charAt(0).toUpperCase() +
+//         companyRawName.slice(1).toLowerCase()
+//       : "";
 
-    setBorderColor("border-green-600");
-    setText("");
+//     if (text.trim() === "" || !companyName) {
+//       setBorderColor("border-red-600");
+//       setText("");
+//       return;
+//     }
 
-    const newItem = {
-      id: Date.now(),
-      upvoteCount: 0,
-      company: companyName ? companyName.replace("#", "") : "Example Corp",
-      daysAgo: 0,
-      text,
-      badgeLetter: companyName ? companyName.charAt(1).toUpperCase() : "E",
-    };
-    addFeedbackItem(newItem);
-    await postFeedback(newItem);
-  };
+//     setBorderColor("border-green-600");
+//     setText("");
 
-  return { handlePostFeedback, borderColor };
-};
+//     const newItem = {
+//       id: Date.now(),
+//       upvoteCount: 0,
+//       company: companyName ? companyName.replace("#", "") : "Example Corp",
+//       daysAgo: 0,
+//       text,
+//       badgeLetter: companyName ? companyName.charAt(1).toUpperCase() : "E",
+//     };
+//     addFeedbackItem(newItem);
+//     await postFeedback(newItem);
+//   };
 
-export default usePostFeedback;
+//   return { handlePostFeedback, borderColor };
+// };
+
+// export default usePostFeedback;
