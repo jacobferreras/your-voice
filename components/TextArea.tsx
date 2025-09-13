@@ -1,12 +1,11 @@
 import React from "react";
 import { MAX_CHAR_LIMIT } from "@/lib/constant";
 import useFeedbackStore from "@/store/useFeedbackStore";
-import usePostFeedback from "@/hooks/usePostFeedback";
 
 const TextArea = () => {
   const text = useFeedbackStore((state) => state.text);
   const handleChange = useFeedbackStore((state) => state.handleChange);
-  const { borderColor } = usePostFeedback();
+  const borderColor = useFeedbackStore((state) => state.borderColor);
 
   return (
     <textarea
